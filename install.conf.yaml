@@ -1,0 +1,16 @@
+- defaults:
+    link:
+      relink: true
+
+#- create:
+#    - ~/git-shell-commands
+
+- clean: ['~']
+
+- link:
+    ~/git-shell-commands: 
+        force: true
+        path:  git-shell-commands
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
