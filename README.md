@@ -1,5 +1,6 @@
 # karamellpelle-git-server
-Commands etc. for the git user running git-shell on your custom server. This way you can host your own Git server and simply ranage your repositories.
+
+Simple tools to manage your own Git server (create, list and delete/undelete repositories).
 
 ## Prerequisites
 * A server running a configured SSH daemon
@@ -10,7 +11,7 @@ Commands etc. for the git user running git-shell on your custom server. This way
 On your server:
 ~~~bash
 # make sure you pick a directory to clone into, like `cd ~/Source`
-$ git clone https://github.com/karamellpelle/karamellpelle-dot.git && cd dotfiles && ./install
+$ git clone https://github.com/karamellpelle/karamellpelle-git-server.git && cd karamellpelle-git-server && ./install
 ~~~
 
 ## Setup
@@ -41,3 +42,7 @@ Now, from you local computer: ssh into your server: `ssh git@<your domain>` (may
 ## TODO
 
 Probably 🤔
+
+## Screenshots
+
+![screenshot](meta/screenshot.png)
