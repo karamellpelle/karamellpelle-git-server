@@ -18,11 +18,16 @@ $ git clone https://github.com/karamellpelle/karamellpelle-dot.git && cd dotfile
 This follows the guide from the [Git book](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server).
 
 * Create a Git user on your server, and add your public keys for authentication to `/home/git/.ssh/authorized_keys`.
-* Give ownership to the `/srv/git/` folder on your server: 
+* Create the `/srv/git/` folder on your server and give ownership to the _git_ user:
   ~~~bash
-  # see if git-shell is registered:
+  $ mkdir -p /srv/git
+  $ sudo chown git: /srv/git
+  ~~~
+* Setup _git-shell_ as the login shell for the _git_ user:
+  ~~~bash
+  # see if git-shell is registered...
   $ cat /etc/shells
-  # add if not present:
+  # ...and add if not present:
   $ which git-shell
   $ sudoedit /etc/shells
   # change to git-shell for the git user
