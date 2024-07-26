@@ -1,0 +1,24 @@
+#!/bin/bash
+
+dirname=$(dirname "$0")
+
+repodir="/srv/git"
+trashdir="/srv/git/trash"
+linkdir="/home/git"
+
+echo ""
+
+# show repos and sizes
+source "$dirname/list"
+
+echo ""
+echo "Available commands:"
+echo ""
+echo "    help      Show this help"
+echo "    list      List repositories"
+echo "    new       Create new repository"
+echo "    delete    Delete repository"
+echo "    undelete  Undo deleted repository"
+echo "    exit      Exit session"
+echo ""
+

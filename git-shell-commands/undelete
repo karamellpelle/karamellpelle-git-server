@@ -1,0 +1,70 @@
+#!/bin/bash
+
+#export PATH=$PATH:~/.gem/ruby/2.6.0/bin
+
+dirname=$(dirname "$0")
+
+repodir="/srv/git"
+trashdir="/srv/git/trash"
+linkdir="/home/git"
+
+# test if at least 1 argument 
+if [ -z "$1" ]; then
+    echo "Usage: undelete <name of repository>"
+    exit
+fi
+
+################################################################################
+# convert input to target name
+################################################################################
+
+# remove unwanted parent directories
+reponame=$(basename "$1")
+#echo $reponame
+
+# remove .git extension (we'll add it)
+reponame="${reponame%*.git}"
+#echo $reponame
+
+# transliterate to ascii
+reponame=$(echo "$reponame" | iconv -f utf-8 -t ascii//translit)
+#echo $reponame
+
+# remove strange characters: everything excepty letters, numbers, _ and -
+reponame="${reponame//[^[:alnum:] _-]/}"
+#echo $reponame
+
+# convert spaces to dashes
+reponame="${reponame// /-}"
+#echo $reponame
+
+################################################################################
+
+
+# this repository 
+repotarget="$repodir/$reponame.git"
+linktarget="$linkdir/$reponame.git"
+trashtarget="$trashdir/$reponame.git"
+#echo $repotarget
+#echo $linktarget
+#echo $trashtarget
+#ls $trashdir
+
+# test if repo exist
+if ! test -d "$trashtarget"; then 
+  echo "Repository "'"'"$reponame"'"'" does not exist."
+  exit
+fi 
+
+
+# test if we can trash our repo, that is, it's not in trash already
+if test -d "$repotarget"; then 
+  echo "Can't undelete repository - a repository with the same name "'"'"$reponame"'"'" exists :("
+  exit
+fi 
+
+mv "$trashtarget" "$repotarget" 
+ln -sf "$repotarget" "$linktarget"
+echo "Git repository "'"'"$reponame"'"'" undeleted :)"
+
+

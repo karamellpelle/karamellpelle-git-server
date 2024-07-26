@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#export PATH=$PATH:~/.gem/ruby/2.6.0/bin
+
+dirname=$(dirname "$0")
+
+repodir="/srv/git"
+trashdir="/srv/git/trash"
+linkdir="/home/git"
+
+echo "Git repositories:"
+echo ""
+gdu $repodir -n --ignore-dirs $trashdir 

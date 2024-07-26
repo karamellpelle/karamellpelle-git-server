@@ -1,0 +1,9 @@
+#!/bin/sh
+
+printf '\n%s\n\n' "Hi $USER 🙋‍♀️"
+
+printf '%s\n\n\n' "You are authenticated, but I do not grant you interactive shell access 😂 😂 😂"
+
+printf '%s\n\n' "Peace ☮️"
+
+exit 128
