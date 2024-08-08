@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#export PATH=$PATH:~/.gem/ruby/2.6.0/bin
-
 dirname=$(dirname "$0")
+
+# read settings
+source $dirname/settings.conf
 
 repodir="/srv/git"
 linkdir="/home/git"
@@ -44,8 +45,11 @@ if test -d "$repotarget"; then
 fi 
 
 
+################################################################################
+
 # create destination for $reponame if it does not exists
 #mkdir "$repodir"
+echo ""
 echo "Setting up Git repository..."
 #echo "mkdir $repotarget"
 #echo "cd $repotarget"
@@ -57,10 +61,6 @@ git init --bare --initial-branch=main
 # create symlink for better URL's
 linktarget="$linkdir/$reponame.git"
 #echo "ln -s $repotarget $linktarget"
-#echo ""
-#echo ""
-#echo ""
-#echo ""
 ln -s "$repotarget" "$linktarget"
 
 # finished.
@@ -71,17 +71,9 @@ echo "Now, on your local computer:"
 echo ""
 echo "  $ cd <local project directory>"
 echo "  $ git init"
-echo "  $ git add <files>"
+echo "  $ git add <files and folders>"
 echo "  $ git commit"
-echo "  $ git remote add origin git@<your domain>:$reponame.git"
+echo "  $ git remote add origin git@${GITSERVER_DOMAINNAME}:$reponame.git"
 echo "  $ git push origin main"
 echo ""
 echo ""
-
-#~~~bash
-#$ mkdir /srv/git/reponame.git
-#$ cd /home/git
-#$ ln -s /srv/git/reponame.git
-#$ cd reponame.git
-#$ git init --bare
-#~~~

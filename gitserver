@@ -1,0 +1,9 @@
+# put your gitserver settings here. 
+# comments show default values 
+
+# welcome message
+#GITSERVER_MSG_WELCOME=$'\nHello 😊\n'
+
+# domain name of server
+#GITSERVER_DOMAINNAME=$'<your domain>'
+

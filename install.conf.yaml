@@ -1,16 +1,22 @@
 - defaults:
     link:
       relink: true
-
-#- create:
-#    - ~/git-shell-commands
+      create: true
 
 - clean: ['~']
+
+- shell:
+  #- command: git submodule update --init --recursive
+  #  description: Installing submodules
+  #  quiet: false
+  - command: cp -n gitserver ~/.gitserver
+    description: Creating default settings (.gitserver)
+    quiet: true
+  - command: touch ~/.hushlogin
+    description: Silencing login messages (like motd)
+    quiet: false
 
 - link:
     ~/git-shell-commands: 
         force: true
         path:  git-shell-commands
-
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#export PATH=$PATH:~/.gem/ruby/2.6.0/bin
-
 dirname=$(dirname "$0")
+
+# read settings
+source $dirname/settings.conf
 
 repodir="/srv/git"
 trashdir="/srv/git/trash"

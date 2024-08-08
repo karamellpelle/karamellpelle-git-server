@@ -1,9 +1,19 @@
 #!/bin/sh
 
-printf '\n%s\n\n' "Hi $USER 🙋‍♀️"
+dirname=$(dirname "$0")
 
-printf '%s\n\n\n' "You are authenticated, but I do not grant you interactive shell access 😂 😂 😂"
+# read settings
+source $dirname/settings.conf
 
-printf '%s\n\n' "Peace ☮️"
+echo ""
+
+echo "Hi 🙋"
+echo ""
+
+echo "You are authenticated, but I do not grant you interactive shell access 😂 😂 😂"
+echo ""
+
+echo "Peace ☮️"
+echo ""
 
 exit 128
