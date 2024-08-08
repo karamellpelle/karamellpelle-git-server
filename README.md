@@ -16,13 +16,14 @@ This follows the guide from the [Git book](https://git-scm.com/book/en/v2/Git-on
 
 * Create the _git_ user on your server and login.
 * Add your public keys for authentication to the `/home/git/.ssh/authorized_keys` file.
-* Install files
+* Install files:
 
   ~~~bash
   # make sure you pick a directory to clone into, like `/home/git/Source`:
   $ mkdir -p /home/git/Source
   $ git clone https://github.com/karamellpelle/karamellpelle-git-server.git /home/git/Source/karamellpelle-git-server 
-  $ ./home/git/Source/karamellpelle-git-server/install
+  $ cd /home/git/Source/karamellpelle-git-server
+  $ ./install
   ~~~
 
 * Configure your values in `/home/git/.gitserver`
