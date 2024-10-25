@@ -14,7 +14,8 @@ Simple tools to manage your own Git server (create, list and delete/undelete rep
 
 This follows the guide from the [Git book](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server).
 
-* Create the _git_ user on your server and login.
+* Create the 
+* Create the _git_ user on your server (`sudo adduser git`) and login 
 * Add your public keys for authentication to the `/home/git/.ssh/authorized_keys` file.
 * Install files:
 
